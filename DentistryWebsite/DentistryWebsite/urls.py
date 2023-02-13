@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.urls import path, re_path, include
 from hello import views
-
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', views.index)
+    path('', views.base),
+    path('contact/', views.contact),
+    path('info/', views.info)
 ]
 
