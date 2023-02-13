@@ -2,7 +2,13 @@ from django.http import HttpResponse, HttpRequest, HttpResponseBadRequest, JsonR
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
 
-def index(request: HttpRequest):
-    data = {'name': 'nikita'}
+def base(request: HttpRequest):
+    return render(request=request, template_name='base.html')
 
-    return render(request, 'index.html', context=data)
+
+def info(request: HttpRequest):
+    return render(request=request, template_name='info.html')
+
+
+def contact(request: HttpRequest):
+    return render(request=request, template_name='contact.html')
