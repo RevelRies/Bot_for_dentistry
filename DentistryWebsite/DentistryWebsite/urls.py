@@ -18,8 +18,9 @@ from hello import views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', views.base),
+    path('', views.index),
     path('contact/', views.contact),
-    path('info/', views.info)
+    path('info/', views.info),
+    path('user/', views.user)
 ]
 
