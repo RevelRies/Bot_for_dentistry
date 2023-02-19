@@ -1,3 +1,7 @@
+from Bot_for_dentistry.DentistryWebsite.DentistryWebsite.wsgi import *
+
+import crud
+
 import logging
 import config
 import asyncio
@@ -10,6 +14,7 @@ from aiogram.filters import Command, Text
 from aiogram.filters.callback_data import CallbackData
 from aiogram.types import Message, CallbackQuery, KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
+
 
 
 bot = Bot(token=config.bot_token)
@@ -61,7 +66,9 @@ async def main_menu(message: Message):
                   KeyboardButton(text='Записаться на прием'),],
 
                   [KeyboardButton(text='Наши врачи'),
-                  KeyboardButton(text='Мои записи')]
+                  KeyboardButton(text='Мои записи')],
+
+                  [KeyboardButton(text='Кнопка для тестов')]
 
     ]
 
@@ -151,9 +158,28 @@ async def get_doctors_again(callback: CallbackQuery):
     text = 'Выберите врача⬇️'
     await callback.message.edit_text(text=text, reply_markup=await get_doctors_markup())
 
+#-------------------------------------------------------------------------------------------
+# ТЕСТЫ НА ДЖАНГО
+
+# обработка "Кнопка для тестов"
+@dp.message(Text(text='Кнопка для тестов'))
+async def get_test_menu(message: Message):
+    buttuns = [     [KeyboardButton(text='Все пользователи'),
+                     KeyboardButton(text='Вторая кнопка')],
+
+                    [KeyboardButton(text='Третья кнопка'),
+                     KeyboardButton(text='Четвертая кнопка')]
+
+    ]
+
+    markup = ReplyKeyboardMarkup(keyboard=buttuns, resize_keyboard=True)
+
+    await message.answer(text='Тестовое меню', reply_markup=markup)
+
+
+# -------------------------------------------------------------------------------------------
 
 async def main():
     await dp.start_polling(bot)
-
 
 asyncio.run(main())

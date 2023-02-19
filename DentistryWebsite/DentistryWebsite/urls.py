@@ -19,8 +19,12 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', views.index),
-    path('contact/', views.contact),
-    path('info/', views.info),
-    path('user/', views.user)
+    path('createuser/', views.createuser),
+    path('getallusers/', views.get_all_users),
+    path('getuserbyid/', views.get_user_by_ID),
+    path('editusername/', views.edit_user_name),
+    path('updateuser/', views.update_user),
+    path('deleteuser/', views.delete_user),
+    path('avg', views.get_avg)
 ]
 
