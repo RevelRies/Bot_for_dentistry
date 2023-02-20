@@ -1,7 +1,3 @@
-from Bot_for_dentistry.DentistryWebsite.DentistryWebsite.wsgi import *
-
-import crud
-
 import logging
 import config
 import asyncio
@@ -16,8 +12,9 @@ from aiogram.types import Message, CallbackQuery, KeyboardButton, ReplyKeyboardM
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 
 
+token = config.bot_token
 
-bot = Bot(token=config.bot_token)
+bot = Bot(token=token)
 dp = Dispatcher()
 
 logging.basicConfig(level=logging.INFO)
