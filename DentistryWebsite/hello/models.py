@@ -41,7 +41,7 @@ class Message(models.Model):
     )
 
     def __str__(self):
-        return 'функция str'
+        return f'Сообщения пользователя {self.profile.name}'
 
     class Meta:
         verbose_name = 'Сообщение'
