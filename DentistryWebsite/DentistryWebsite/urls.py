@@ -20,6 +20,7 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('get_all_users/', ProfileAPI.as_view())
+    path('get_all_users/', ProfileAPI.as_view()),
+    path('get_all_users/<int:pk>/', ProfileAPI.as_view())
 ]
 
