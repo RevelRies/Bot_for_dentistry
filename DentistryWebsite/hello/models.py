@@ -15,7 +15,7 @@ class Doctor(models.Model):
 
 
 class Profile(models.Model):
-    external_id = models.PositiveIntegerField()
+    external_id = models.IntegerField()
     name = models.CharField(max_length=128)
 
     def __str__(self):
