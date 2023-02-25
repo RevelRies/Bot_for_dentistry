@@ -11,6 +11,15 @@ class ProfileAPI(APIView):
         res = Profile.objects.all().values()
         return Response(res)
 
+
+    def post(self, request: Request):
+        data = request.data
+        Profile.objects.create(
+            external_id=data['external_id'],
+            name=data['name']
+        )
+        return Response('Пользователь создан')
+
 # class ProfileAPI(ListAPIView):
 #     queryset = Profile.objects.all()
 #     serializer_class = ProfileAPISerializer
